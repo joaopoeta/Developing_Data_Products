@@ -1,6 +1,14 @@
-# Developing Data Products
+## Developing Data Products
 
-Resume: this is a project to create a simple App with the following characteristics:
+# Resume
+this is a project to create a simple App with the following characteristics:
+
+# Where can you find this application?
+
+# Read more about this application
+I published in RPUBS a presentation with the R-Studio Presenter about this application. The link is:
+
+# Details
 
 1. The application generates a sample of random numbers based on a normal distribution. The sample size can vary between 3 and 30 points in two-dimensional space and the user can make this change freely.
 

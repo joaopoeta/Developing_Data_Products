@@ -13,14 +13,14 @@ I published a short Presentation about it in RPUBS. This is a R-Studio Presentat
 
 1. The application generates a sample of random numbers based on a normal distribution. The sample size can vary between 3 and 30 points in two-dimensional space and the user can make this change freely.
 
-2. To generate the random numbers, the user can also choose from 4 different seeds: **seed = 1, 42, 77 and 121**.
+2. To generate the random numbers, the user can also choose from 4 different seeds: **seed = 1, 42, 77** and **121**.
 
-3. Each time the random numbers are generated, the application suggests the best solution based on a simple linear regression model.
+3. Each time that the random numbers are generated, the application suggests the best solution based on a simple **Linear Regression Model**.
 
-4. The application automatically plots the graph of points generated, the linear regression model, some statistics generated points and the residue (error) in this model.
+4. The application automatically plots the graphics of points generated, the **Linear Regression Model** solution, some statistics from the generated points and the residual (error) in the solution.
 
-5. In parallel, the application generates an arbitrary line. This is a line that can be modified by the user through the call control X.
+5. In parallel, the application generates an **Arbitrary Line**. This is a straight line that can be modified by the user through the call of the control **Arbitrary Straight Line Generator**.
 
-6. Each time the user generates a new arbitrary straight, the application calculates the residue inherent in this line. Thus, the user can compare in real time the waste inherent in the linear regression model and the residue calculated for each arbitrary line. The objective of this task is to verify that the solution provided by the linear regression model it is an optimum solution, i.e., a straight line (between one family of endless lines) where the waste is minimal. No other line provides best result.
+6. Each time that the user generates a new arbitrary straight, the application calculates the residual inherent in this arbitrary line. Thus, the user can compare (in real time) the residual inherent in the Linear Regression Model and the residual calculated for each new arbitrary line. So the fundamental objective of this application is to verify that the solution provided by the Linear Regression Model is an optimum solution, i.e., a straight line (between one family of endless lines) where the residual is minimized (it is a minimum). No other line provides best result than it.
 
-7. The application still possesses some auxiliary controls. (1) it allows you to turn the user decide whether or not to display the chart legend. (2) it lets the user decide whether to see the vertical line segments that indicate the distance between the sampling points and a straight solution of linear regression model or arbitrary straight.
+7. The application still possesses some auxiliary controls. **(1)** it allows the user to decide whether or not to display the chart legend. **(2)** it lets the user decide whether he wants (or not) to see the visual representation of the residuals. That means: the vertical line segments that indicate the distance between the sampling points and a straight solution of linear regression model or the arbitrary straight.

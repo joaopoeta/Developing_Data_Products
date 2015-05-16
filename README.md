@@ -13,7 +13,7 @@ I published a short Presentation about it in RPUBS. This is a R-Studio Presentat
 
 1. The application generates a sample of random numbers based on a normal distribution. The sample size can vary between 3 and 30 points in two-dimensional space and the user can make this change freely.
 
-2. To generate the random numbers, the user can also choose from 4 different seeds: seed = 1, 42, 77 and 121.
+2. To generate the random numbers, the user can also choose from 4 different seeds: $seed = 1, 42, 77 and 121$.
 
 3. Each time the random numbers are generated, the application suggests the best solution based on a simple linear regression model.
 

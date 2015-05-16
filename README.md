@@ -1,14 +1,15 @@
-## Developing Data Products
+# Simple Linear Regression with Random Numbers
 
-# Resume
-this is a project to create a simple App with the following characteristics:
+### Resume
+This is a Project to create a simple App to help understand the inherent residual in the Linear Regression Models.
 
-# Where can you find this application?
+### Where can you find this application?
+This App is posted in *shinyapps.io* Website: https://jefa.shinyapps.io/RegressionModel/
 
-# Read more about this application
-I published in RPUBS a presentation with the R-Studio Presenter about this application. The link is:
+### Where can you read a little more about this application?
+I published a short Presentation about it in RPUBS. This is a R-Studio Presentation about my Application. The link to RPub is:.
 
-# Details
+### Details about the Application
 
 1. The application generates a sample of random numbers based on a normal distribution. The sample size can vary between 3 and 30 points in two-dimensional space and the user can make this change freely.
 

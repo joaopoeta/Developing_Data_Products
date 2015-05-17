@@ -2,7 +2,7 @@ library(shiny)
 library(UsingR)
 
 shinyServer(
-        function(input, output) { 
+        function(input, output) {
                 
                 output$newHist <- renderPlot({
                         # Get Inputs
@@ -10,6 +10,7 @@ shinyServer(
                         N <- input$N
                         range <- input$range
                         delta <- input$delta
+                        valueToPredict <- input$valueToPredict
                        
                         # Generating Random Numbers From a Linear Model
                         x <- rnorm(N)
@@ -56,8 +57,19 @@ shinyServer(
                                 segments(x[s], y[s], x[s], predicY, col= 'forestgreen')
                         }
                         
+                        # Value of y to Predict
+                        isXvalueNA <- suppressWarnings(is.na(as.numeric(valueToPredict)))
+                        if(!isXvalueNA)
+                        {
+                                xNumeric <- as.numeric(valueToPredict)
+                                yPrediction <- predict(model, newdata = data.frame(x = xNumeric))
+                                points(xNumeric, yPrediction, ,pch=18,cex=2,col="green")
+                                arrows(xNumeric+0.3, yPrediction, xNumeric+0.05, yPrediction, length=0.1)
+                                text(xNumeric+0.3, yPrediction, "Value \n Predicted")
+                        }
+                       
+                        
                         })
-
                 # Table
                 distributionValues <- reactive({
                           
@@ -66,12 +78,27 @@ shinyServer(
                         N <- input$N
                         range <- input$range
                         delta <- input$delta
+                        valueToPredict <- input$valueToPredict
                         
                         # Generating Random Numbers From a Linear Model
                         x <- rnorm(N)
                         error <- rnorm(N, 0, 2) 
                         y <- 0.5 + 2*x + error 
                         model <- lm(y ~ x)
+                        
+                        # Value of y to Predict
+                        isXvalueNA <- suppressWarnings(is.na(as.numeric(valueToPredict)))
+                        yPrediction <- ""
+                        
+                        if(isXvalueNA)
+                        {
+                                yPrediction <- "This is not a numeric value. Try again..."
+                        }else
+                        {
+                                xNumeric <- as.numeric(valueToPredict)
+                                yPrediction <- predict(model, newdata = data.frame(x = xNumeric))
+                                yPrediction <- signif(yPrediction, digits=4)
+                        }
                         
                         # Residual Error Arbitrary Line
                         a <- min(x) - 5
@@ -97,16 +124,18 @@ shinyServer(
                         resLM <- summary(model)$sigma 
                         
                         # Compose data frame
-                        data.frame(Name = c("Correlation (x,y)", 
+                        data.frame(Resume = c("Correlation (x,y)", 
                                             "Covariance (x,y)",
                                             "Residual Linear Model",
-                                            "Residual Arbitrary"),
+                                            "Residual Arbitrary Line",
+                                            "Prediction of Y"),
                                    
-                                   Value = as.character(c(signif(cor(x,y)), 
-                                                          signif(cov(x,y)), 
-                                                          signif(resLM),
-                                                          signif(resArbitrary)),digits=4),
-                                   stringsAsFactors=FALSE)
+                                   Values = as.character(c( signif(cor(x,y), digits=4), 
+                                                          signif(cov(x,y), digits=4), 
+                                                          signif(resLM, digits=4),
+                                                          signif(resArbitrary, digits=4),
+                                                          yPrediction),
+                                   stringsAsFactors=FALSE))
       
                 })
                 
@@ -116,4 +145,3 @@ shinyServer(
                 })
 
 })
-
